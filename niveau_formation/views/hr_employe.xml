@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="hr__form_view" model="ir.ui.view">
+        <field name="name"> employe inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+        <xpath expr="//field[@name='work_email']" position="after">
+           <field name="echelle"/>
+           <field name="niveau"/>
+           <field name="date_debut"/>
+           <field name="date_fin"/>
+           <field name="ancienete"/>
+           <field name="categorie"/>
+           <field name="echelle_autonomie"/>
+           <field name="design_autonomie"/>
+           <field name="note_eval_autonomie"/>
+           <field name="niveau_etude"/>
+           <field name="qualification_fonction"/>
+           <field name="designation"/>
+           <field name="note_evaluation" invisible="1"/>
+           <field name="note_eval" invisible="1"/>
+           <field name="evaluation" invisible="1"/>
+           <field name="note_formation"  invisible="1"/>
+           <field name="reclamation"/>
+           <field name="Note"   force_save="1"/>
+        </xpath>
+        </field>
+    </record>
+
+    
+</odoo>

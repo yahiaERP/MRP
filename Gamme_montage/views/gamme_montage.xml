@@ -1,0 +1,56 @@
+<odoo>
+	<record id="view_gamme_form" model="ir.ui.view">
+		<field name="name">gamme.form</field>
+		<field name="model">gamme</field>
+		<field name="priority" eval="8" />
+		<field name="arch" type="xml">
+			<form string="gamme de montage ">
+				<group>
+					<field name="barcode"/>
+					<field name="product_id" string="Produit"/>
+					<field name="outil" string="outils"/>
+					<field name="liste_composant"/>
+				</group>
+				<notebook>
+					<page string="Répartition des postes" name="Phases">
+						<field name="prescription_line_ids">
+							<tree editable="bottom" width="250px" height="290px">
+								<field name="sl_no" width="130px"/>
+								<field name="phases" width="130px"/>
+								<field name="operations" width="130px"/>
+								<field name="outils" string="outils" widget="many2many_tags" width="130px"/>
+								<field name="Poste" string="Poste" width="120px"/>
+								<field name="employe" string="employé" width="130px"/>
+								<field name="kanban_state" widget="state_selection" width="130px"/>
+								<field name="Note" string="note poste" width="130px"/>
+								<field name="employe_rempl" string="employé remplacant" width="160px" attrs="{'invisible': [('employe', '=', '')]}"/>
+								<field name="schema_croquis" width="150px" widget="pdf_viewer"/>
+								<field name="temps_alloué" string="Temps alloué" width="120px" sum="Total"/>
+								<field name="renseignements" width="250px"/>
+							</tree>
+						</field>
+					</page>
+				</notebook>
+			</form>
+		</field>
+	</record>
+	<record id="view_gamme_tree" model="ir.ui.view">
+		<field name="name">gamme.tree</field>
+		<field name="model">gamme</field>
+		<field name="priority" eval="8" />
+		<field name="arch" type="xml">
+			<tree string="gamme">
+				<field name="barcode"/>
+				<field name="product_id" string="article"/>
+				<field name="outil" string="outils"/>
+				<field name="liste_composant" string="composants"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.actions.act_window" id="action_view_gamme_list">
+		<field name="name">Gamme de montage  </field>
+		<field name="res_model">gamme</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<menuitem id="menu_gamme_montage" name="Gamme de montage" action="action_view_gamme_list" parent="mrp.menu_mrp_manufacturing" sequence="1" />
+</odoo>

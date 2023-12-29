@@ -1,0 +1,36 @@
+<odoo>
+   <record id="view__niveau_formation_form" model="ir.ui.view">
+            <field name="name">formation.form</field>
+            <field name="model">formation</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="niveau de formation">
+                <group>
+                    <field name="echelle" string="echelle"/>
+                    <field name="niveau_etude" string="designation"/>
+                    <field name="note_formation"  string="Note d'evaluation"/>
+                </group>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_niveau_formation_tree" model="ir.ui.view">
+            <field name="name">formation.tree</field>
+            <field name="model">formation</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="niveau de formation" editable="bottom">
+                    <field name="echelle" string="echelle"/>
+                    <field name="niveau_etude" string="designation"/>
+                    <field name="note_formation"  string="Note" width="70px"/>
+                </tree>
+            </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="action_view_niveau_formation_list">
+        <field name="name">Niveaux de Formation</field> 
+        <field name="res_model">formation</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_niveau_formation" action="action_view_niveau_formation_list"  parent="hr.menu_human_resources_configuration" sequence="1" />
+    </odoo>

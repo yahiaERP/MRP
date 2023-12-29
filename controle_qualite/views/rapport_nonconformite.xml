@@ -1,0 +1,72 @@
+<odoo>
+   <record id="view_non_conformite_form" model="ir.ui.view">
+            <field name="name">conformite.form</field>
+            <field name="model">conformite</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="conformite">
+                <sheet>
+                <group>
+                <group>
+                    <field name="numero" readonly="False"/>
+                    <field name="nc_interne" string="NC interne"/>
+                    <field name="nc_reception" string="NC reception"/>
+                    <field name="nc_client" string="NC client"/>
+                    <field name="designation_produit" string="designation"/>
+                    <field name="code_barre" string="code barre"/>
+                    <field name="produit" string="Article"/>
+                    <field name="ordre_fabrication" string="ordre  fabrication"/>
+                    <field name="fournisseur" string="fournisseur"/>
+                    <field name="description_conformite" string="description de la non conformité"/>
+                     <field name="derogation" string="dérogation"/>
+                     <field name="rebuts"/>
+                </group>
+                <group>
+                    <field name="date_arrivage" string="date arrivage"/> 
+                    <field name="quantite_recu" string="quantite recu"/>
+                    <field name="client" string="client"/>
+                    <field name="reception" string="reception"/>
+                    <field name="responsable_magasin" string="responsable Magasin"/>
+                    <field name="responsable_production" string="responsable production"/>
+                    <field name="controleur_qualite" string="controleur qualité"/>
+                    <field name="responsable_technique" string="responsable technique"/>
+                    <field name="retour_fournisseur" string="retour fournisseur"/>
+                    <field name="reparation" string="reparation"/>
+                    <field name="date" string="date" invisible="1"/>
+                </group>
+                </group>
+                 </sheet>
+                </form>
+               
+            </field>
+    </record>
+
+    <record id="view_non_conformite_tree" model="ir.ui.view">
+            <field name="name">conformite.tree</field>
+            <field name="model">conformite</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Rapport de non conforrmite">
+                    <field name="numero" string="numero"/>
+                    <field name="nc_interne" string="NC interne"/>
+                    <field name="nc_reception" string="NC reception"/>
+                    <field name="nc_client" string="NC client"/>
+                    <field name="designation_produit" string="designation produit"/>
+                    <field name="ordre_fabrication" string="ordre de fabrication"/>
+                    <field name="fournisseur" string="fournisseur"/>
+                    <field name="date_arrivage" string="date arrivage" width="150px"/> 
+                    <field name="quantite_recu" string="quantite recu" width="150px"/>
+                    <field name="client" string="client"/>
+                    <field name="reception" string="reception"/>
+                </tree>
+            </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="action_view_conformite_list">
+        <field name="name"> Rapport de non-conformité</field> 
+        <field name="res_model">conformite</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_conformite"  name="Controle qualité" action="action_view_conformite_list"   sequence="2" />
+    <menuitem id="menu_rapport_conformite"  name="Rapport de non-conformité"  parent="menu_conformite" action="action_view_conformite_list"   sequence="2" />
+    </odoo>

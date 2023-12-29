@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_intervention">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <p style="page-break-after:always;" />
+                <div class="centered-image">
+                    <div class="header">
+                        <img src="controle_qualite/static/src/img/logo.png" alt="logo"/>
+                    </div>
+                </div>
+                <div class="article">
+                    <div class="page">
+                        <style>
+                            table, td, th {
+                            border: 1px solid;
+                            }
+
+                            table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            }
+                            .field-name {
+                                font-weight: bold;
+                                font-size: 18px;
+                                text-align: left;
+                                width: 40%;
+                            }
+                            .field-centered {
+                                font-weight: bold;
+                                font-size: 18px;
+                                text-align: left;
+                                width: 40%;
+                                text-align:center;
+                            }
+                        </style>
+                        <table class="rounded-table" border="1">
+                            <tbody>
+                                <tr >
+                                    <td >date : <span t-if="doc.date" t-field="doc.date"/>
+                                    </td>
+                                    <td class="field-centered" rowspan="4" colspan="4">
+                                        <span>Fiche d'intervention corrective</span>
+                                    </td>
+                                    <td class="field-centered" rowspan="4">
+                                        <span>competance de technicien/consigne de securite</span>
+                                    </td>
+                                </tr>
+                                <tr  >
+                                    <td class="field-name">demandeur : <span t-if="doc.demandeur" t-field="doc.demandeur"/>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="field-name">degre d'urgence : <span t-if="doc.degre_urgence" t-field="doc.degre_urgence"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="field-name">type d'intervention: <span t-if="doc.type_intervention" t-field="doc.type_intervention"/>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <table style="width:99%;border-collapse:collapse;" border="1">
+                            <thead>
+                                <tr>
+                                    <td class="field-name">operation_no</td>
+                                    <td class="field-name">type intervention</td>
+                                    <td class="field-name">debut intervention</td>
+                                    <td class="field-name"> fin intervention </td>
+                                    <td class="field-name">duree d'intervention </td>
+                                    <td class="field-name">observation </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.prescription_line" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.n_operation"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.type_intervention"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.debut_intervention"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.fin_intervention"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.duree"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.observation"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+            <div class="footer" style="border-top:1px solid black;">
+                <p class="text-center">page																																																																																																																																																																																																						
+                    <span class="page"/>
+ of 																																																																																																																																																																																																						
+                    <span class="topage"/>
+                </p>
+            </div>
+        </t>
+    </template>
+</odoo>

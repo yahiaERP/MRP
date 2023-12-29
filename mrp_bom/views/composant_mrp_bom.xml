@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="mrp_bom_form_view" model="ir.ui.view">
+		<field name="name"> mrp bom</field>
+		<field name="model">mrp.bom</field>
+		<field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='product_tmpl_id']" position="after">
+				<field name="composant"  attrs="{'invisible': [('product_tmpl_id', '=', False)]}"/>
+                <field name="categorie" attrs="{'invisible': [('composant', '=', False)]}"/>
+                <field name="reference" attrs="{'invisible': [('categorie', '=', False)]}"/>
+			</xpath>
+		</field>
+	</record>
+</odoo>

@@ -1,0 +1,36 @@
+<odoo>
+   <record id="view_formation_interne_form" model="ir.ui.view">
+            <field name="name">formation_interne.form</field>
+            <field name="model">interne</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string=" formation interne ">
+                <group>
+                    <field name="niveau" string="niveau"/>
+                    <field name="designation" string="designation"/>
+                    <field name="note_evaluation"  string="Note d'evaluation"/>
+                </group>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_formation_interne_tree" model="ir.ui.view">
+            <field name="name">formation_interne.tree</field>
+            <field name="model">interne</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string=" formation internE" editable="bottom">
+                    <field name="niveau" string="niveau"/>
+                    <field name="designation" string="designation"/>
+                    <field name="note_evaluation"  string="Note" width="70px"/>
+                </tree>
+            </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="action_view_niveau_formation_interne_list">
+        <field name="name"> Formation interne </field> 
+        <field name="res_model">interne</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_niveau_formation_interne" action="action_view_niveau_formation_interne_list"  parent="hr.menu_human_resources_configuration" sequence="2 "/>
+    </odoo>

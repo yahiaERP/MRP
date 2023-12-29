@@ -1,0 +1,33 @@
+<odoo>
+   <record id="view_gamme_form" model="ir.ui.view">
+            <field name="name">jours.form</field>
+            <field name="model">jours</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Jours de la semaine">
+                <group>
+                    <field name="jours_semaine" string="jours de la semaine"/>
+                </group>
+                
+                </form>
+            </field>
+    </record>
+
+    <record id="view_gamme_tree" model="ir.ui.view">
+            <field name="name">jours.tree</field>
+            <field name="model">jours</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="jours" editable="bottom">
+                    <field name="jours_semaine"/>
+                </tree>
+            </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_view_jour_list">
+        <field name="name">Jour de la semaine </field> 
+        <field name="res_model">jours</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_jours" name="Jours de la semaine" action="action_view_jour_list"  parent="mrp.menu_mrp_configuration" sequence="3" />
+    </odoo>

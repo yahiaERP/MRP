@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<report id="rapport_magasin" string="ordre de travail Magasinier" model="mrp.production" report_type="qweb-pdf" name="Gamme_mrp_production.report_magasin" file="Gamme_mrp_production.report_magasin"/>
+</odoo>

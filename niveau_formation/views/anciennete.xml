@@ -1,0 +1,34 @@
+<odoo>
+   <record id="view_anciennete_form" model="ir.ui.view">
+            <field name="name">anciennete.form</field>
+            <field name="model">anciennete</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="anciennete">
+                <group>
+                    <field name="ancienete" string="ancienete"/>
+                    <field name="note_eval"  string="Note d'evaluation"/>
+                </group>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_anciennete_tree" model="ir.ui.view">
+            <field name="name">anciennete.tree</field>
+            <field name="model">anciennete</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="anciennete" editable="bottom">
+                    <field name="ancienete" string="ancienete"/>
+                    <field name="note_eval"  string="Note" width="70px"/>
+                </tree>
+            </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="action_view_anciennete_list">
+        <field name="name">Anciennete</field> 
+        <field name="res_model">anciennete</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_anciennete" action="action_view_anciennete_list"  parent="hr.menu_human_resources_configuration" sequence="4" />
+    </odoo>

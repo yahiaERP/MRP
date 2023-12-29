@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="gamme_mrp_production" model="ir.ui.view">
+		<field name="name">gamme.mrp</field>
+		<field name="model">mrp.production</field>
+		<field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+		<field name="arch" type="xml">
+		<field name="product_id" position="after">
+				<field name="outil_ids" widget="many2many_tags"/>
+				<field name="composant_ids" widget="many2many_tags"/>
+			</field>
+			<notebook position="inside">
+				<page string="Gamme de montage" name="Phases">
+					<field name="prescription_lines">
+						<tree editable="bottom" width="180px" height="120px">
+							<field name="sl_no" width="130px"/>
+							<field name="phases" width="130px"/>
+							<field name="operations" width="130px"/>
+							<field name="outils" widget="many2many_tags" string="outils" width="150px"/>
+							<field name="Poste" string="Poste" width="120px"/>
+							<field name="employe" string="employé" width="130px"/>
+							<field name="kanban_state" widget="state_selection" width="130px"/>
+							<field name="Note" string="note poste" width="130px"/>
+							<field name="employe_rempl" string="employé remplacant" width="160px" attrs="{'invisible': [('employe', '=', '')]}"/>
+							<field name="schema_croquis" width="150px" widget="pdf_viewer"/>
+							<field name="temps_alloué" string="Temps alloué" width="120px" sum="Total"/>
+							<field name="renseignements" width="250px"/>
+						</tree>
+					</field>
+				</page>
+			</notebook>
+		</field>
+	</record>
+</odoo>

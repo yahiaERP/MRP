@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="mrp_production_workorder_inherit_composant" model="ir.ui.view">
+		<field name="name">mrp.production.work.order.tree.editable.inherit.composant</field>
+		<field name="model">mrp.workorder</field>
+		<field name="inherit_id" ref="mrp.mrp_production_workorder_tree_editable_view"/>
+		<field name="arch" type="xml">
+			<field name="name" position="after">
+				<field name="employe" string="employe" width="130px"/>
+			</field>
+			<field name="duration" position="after">
+				<button name="print_mrp_workorder" string="Imprimer" type="object" class="oe_highlight" />
+			</field>
+		</field>
+	</record>
+</odoo>

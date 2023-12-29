@@ -1,0 +1,39 @@
+<odoo>
+   <record id="view_nomenclature_form" model="ir.ui.view">
+            <field name="name">nomenclature.form</field>
+            <field name="model">nomenclature</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="composant">
+                <sheet>   
+                <group>
+                    <field name="nom_composant" string="Nom composant"/>
+                    <field name="categorie" string="categorie"/>
+                    <field name="reference" string="reference" placeholder="CE/001"/>
+                </group>
+                </sheet>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_nomenclature_tree" model="ir.ui.view">
+            <field name="name">nomenclature.tree</field>
+            <field name="model">nomenclature</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Composant" editable="bottom">
+                     <field name="nom_composant" string="Nom composant"  options="{'no_create': True}" />
+                     <field name="product" string="Article"/>
+                    <field name="categorie" string="categorie"/>
+                    <field name="reference" string="reference" placeholder="CE/001"/>
+                </tree>
+            </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="action_view_nomenclature_list">
+        <field name="name">nomenclature Composant</field> 
+        <field name="res_model">nomenclature</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_nomeclature"  name="nomeclatures composants " action="action_view_nomenclature_list"  parent="mrp.menu_mrp_bom" sequence="1" />
+    </odoo>

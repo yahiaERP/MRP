@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<record id="mrp_workcenter_qr" model="ir.ui.view">
+		<field name="name">mrp.workcenter.qr</field>
+		<field name="model">mrp.workcenter</field>
+		<field name="type">form</field>
+		<field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
+		<field name="arch" type="xml">
+			<xpath expr="//sheet" position="before">
+				<header>
+					<button name="generate_qr" type="object" string="Generate Qr code" class="btn btn-primary"/>
+				</header>
+			</xpath>
+			<xpath expr="//field[@name='name']" position="after">
+				<field name="numero_poste"/>
+				<field name="duree"/>
+				<field name="Note" string="note du poste"/>
+				<field name="employee_id" />
+				<field name="heure_sortie" string="heure de sortie" widget="float_time"/>
+				<field name="employe_remp"/>
+				<field name="heure_remplacement" string="heure de remplacement"/>
+				<field name="note_employe" invisible="1"/>
+			</xpath>
+			<field name="code" position="after">
+				<field name="qr_code" widget="image" class="oe_avatar"/></field>
+		</field>
+	</record>
+</odoo>

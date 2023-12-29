@@ -1,0 +1,36 @@
+<odoo>
+   <record id="view_qualification_form" model="ir.ui.view">
+            <field name="name">qualification.form</field>
+            <field name="model">qualification</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Qualification">
+                <group>
+                    <field name="categorie" string="categorie"/>
+                    <field name="qualification_fonction" string="qualification onction"/>
+                    <field name="evaluation"  string="Note d'evaluation"/>
+                </group>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_formation_tree" model="ir.ui.view">
+            <field name="name">qualification.tree</field>
+            <field name="model">qualification</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="niveau de formation" editable="bottom">
+                    <field name="categorie" string="categorie"/>
+                    <field name="qualification_fonction" string="Qualification fonction"/>
+                    <field name="evaluation"  string="Note" width="70px"/>
+                </tree>
+            </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="action_view_qualification_list">
+        <field name="name">Qualifications</field> 
+        <field name="res_model">qualification</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_qualification" action="action_view_qualification_list"  parent="hr.menu_human_resources_configuration" sequence="3" />
+    </odoo>

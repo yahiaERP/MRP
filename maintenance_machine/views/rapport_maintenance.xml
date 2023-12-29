@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="maintenance_view_form" model="ir.ui.view">
+			<field name="name">maintenane.view.form</field>
+			<field name="model">maintenance</field>
+			<field name="arch" type="xml">
+				<form string="">
+					<sheet>
+						<group>
+							<group>
+								<field name="ref"></field>
+								<field name="elabore_par"></field>
+								<field name="code"></field>
+								<field name="constructeur"></field>
+								<field name="ddi"></field>
+								<field name="date"></field>
+								<field name="materiel_equipement"/>
+							</group>
+							<group>
+								<field name="source"></field>
+								<field name="verifie_par"></field>
+								<field name="version"></field>
+								<field name="atelier"></field>
+								<field name="pdi"></field>
+								<field name="version"/>
+							</group>
+						</group>
+						<notebook>
+							<page name="operations" string="Operations de maintenance">
+								<field name="prescription">
+									<tree editable="top">
+										<field name="no" />
+										<field name="operation" />
+										<field name="frequence" />
+										<field name="resultat" />
+										<field name="type_manipulation" />
+										<field name="observation"/>
+										<field name="phases" invisible="1"/>
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="maintenance_view_tree" model="ir.ui.view">
+			<field name="name">maintenance.view.tree</field>
+			<field name="model">maintenance</field>
+			<field name="arch" type="xml">
+				<tree string="Maintenance">
+					<field name="ref"></field>
+					<field name="code"></field>
+					<field name="source"></field>
+					<field name="version"></field>
+					<field name="elabore_par"></field>
+					<field name="verifie_par"></field>
+					<field name="constructeur"></field>
+					<field name="atelier"></field>
+					<field name="date"></field>
+					<field name="ddi"></field>
+					<field name="pdi"></field>
+				</tree>
+			</field>
+		</record>
+		<record id="maintenance_action" model="ir.actions.act_window">
+			<field name="name">Rapport de Maintenance</field>
+			<field name="res_model">maintenance</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="maintenance_menu" name="Rapport de maintenance" action="maintenance_action" parent="menu_maintenance" sequence="10"/>
+	</data>
+</odoo>

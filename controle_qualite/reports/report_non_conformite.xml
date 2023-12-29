@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_nonconformite">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <style>
+                    .rounded-table {
+                        border-collapse: collapse;
+                        width: 100%;
+                        border-radius: 10px;
+                        overflow: hidden;
+                    }
+
+                    .rounded-table th {
+                        border: 1px solid black;
+                        text-align: center;
+                        background-color: lightgray;
+                        font-weight: bold;
+                        font-size: 18px;
+                        padding: 10px;
+                    }
+
+                    .rounded-table td {
+                        border: 1px solid black;
+                        padding: 10px;
+                    }
+
+                    .field-name {
+                        font-weight: bold;
+                        font-size: 18px;
+                        text-align: left;
+                        width: 30%;
+                    }
+
+                    .field-value {
+                        font-weight: 600;
+                        font-size: 14px;
+                        text-align: left;
+                        width: 80%;
+                    }
+
+                    .custom-box {
+                        border: 1px solid black;
+                        padding: 19px; /* Increase padding to make it larger */
+                        margin-bottom: 20px;
+                        border-radius: 15px; /* Apply border-radius for rounded corners */
+                    }
+
+                    .custom-label {
+                        font-weight: bold;
+                        font-size: 16px;
+                    }
+
+                    .custom-date {
+                        font-size: 16px; 
+                        
+                    }
+                   
+                    
+                </style>
+                  <div class="header">
+                      <style>
+                        .centered-image {
+                            text-align: center;
+                           
+                        }
+                        centered-image img{
+                            display-inline:block;
+                        }                     
+                         </style>
+                        <div cass="centered-image">
+                  
+                        <img  src="controle_qualite/static/src/img/logo.png" alt="logo" width="200" height="100" />
+
+                        </div>
+                </div>
+                 <div class="custom-box">
+                    <span class="custom-label">Date :</span>
+                    <span t-if="doc.date" t-field="doc.date" class="custom-date"/>
+                </div> 
+                <table class="rounded-table" border="1">
+                    <thead>
+                        <tr style="background-color: gray;">
+                            <th colspan="2">
+                                <span style="font-size: 21px; font-weight: bold; color: red;">Rapport de non Conformite Numero : </span>
+                                <span style="color: red;" t-if="doc.numero" t-field="doc.numero"/>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="field-name">Numero </td>
+                            <td class="field-value">
+                                <span t-if="doc.numero" t-field="doc.numero"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">NC interne</td>
+                            <td class="field-value">
+                                <span t-if="doc.nc_interne" t-field="doc.nc_interne"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">NC reception</td>
+                            <td class="field-value">
+                                <span t-if="doc.nc_reception" t-field="doc.nc_reception"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">NC Client</td>
+                            <td class="field-value">
+                                <span t-if="doc.nc_client" t-field="doc.nc_client"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Designation Produit</td>
+                            <td class="field-value">
+                                <span t-if="doc.designation_produit" t-field="doc.designation_produit"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Fournisseur</td>
+                            <td class="field-value">
+                                <span t-if="doc.fournisseur" t-field="doc.fournisseur"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Date Arrivage</td>
+                            <td class="field-value">
+                                <span t-if="doc.date_arrivage" t-field="doc.date_arrivage"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  class="field-name">
+                                <span style="font-weight: bold;">Description de La non Conformite : </span>
+                            </td>
+                            <td>
+                                <span class="field-value" t-if="doc.description_conformite" t-field="doc.description_conformite"/>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td class="field-name">
+                                <span style="font-weight: bold;">responsable production: </span>
+                            </td>
+                            <td >
+                                <span  class="field-value" t-if="doc.responsable_production" t-field="doc.responsable_production"/>
+                            </td>
+                            
+                        </tr>
+                         <tr>
+                            <td class="field-name">
+                                <span style="font-weight: bold;">controleur qualite: </span>
+                            </td>
+                            <td>
+                                <span class="field-value" t-if="doc.controleur_qualite" t-field="doc.controleur_qualite"/>
+                            </td>
+                        </tr>
+
+                         <tr>
+                            <td class="field-name">
+                                <span style="font-weight: bold;">responsable Magasin: </span>
+                            </td>
+                            <td>
+                                <span class="field-value" t-if="doc.responsable_magasin" t-field="doc.responsable_magasin"/>
+                            </td>
+                        </tr>
+
+                         <tr>
+                            <td class="field-name">
+                                <span style="font-weight: bold;">responsable technique: </span>
+                            </td>
+                            <td>
+                                <span class="field-value" t-if="doc.responsable_technique" t-field="doc.responsable_technique"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" class="field-name">
+                                <div style="font-weight: bold;text-align:center;">Decision : </div>
+                            </td>
+                        </tr>
+                        <tr colspan="2" >
+                            <td class="field-name">
+                                <span style="font-weight: bold;text-align:center;">Derogation : </span>
+                                 <span class="field-value" t-if="doc.derogation" t-field="doc.derogation"/>
+                            </td>
+                            <td class="field-name">
+                                 <span style="font-weight: bold;text-align:center;">retour fournisseur : </span>
+                                 <span class="field-value" t-if="doc.retour_fournisseur" t-field="doc.retour_fournisseur"/>
+                            </td>
+                            </tr>
+                            <tr colspan="2">
+                             <td class="field-name">
+                                 <span style="font-weight: bold;text-align:center;">rebuts  : </span>
+                                 <span class="field-value" t-if="doc.rebuts" t-field="doc.rebuts"/>
+                            </td>
+                            <td class="field-name">
+                                 <span style="font-weight: bold;text-align:center;">reparation  : </span>
+                                 <span class="field-value" t-if="doc.reparation" t-field="doc.reparation"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <div class="footer" style="border-top:1px solid black;">
+			<p class="text-center">page																																																																																																																																																																																																						
+				<span class="page"/> of 																																																																																																																																																																																																						
+				<span class="topage"/>
+			</p>
+		</div>
+            </t>
+        </t>
+    </template>
+    <template id="reports_non_conformite">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="controle_qualite.report_nonconformite"/>
+            </t>
+        </t>
+    </template>
+</odoo>

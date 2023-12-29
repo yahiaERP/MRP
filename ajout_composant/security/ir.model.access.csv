@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_composant,access.composant,model_composant,,1,1,1,1
+access_outil,access.outil,model_outil,,1,1,1,1
+access_nomenclature,access.nomenclature,model_nomenclature,,1,1,1,1
+access_indice,access.indice,model_indice,,1,1,1,1
+access_indice_arrivage,access.indice_arrivage,model_indice_arrivage,,1,1,1,1

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<report id="rapport_nonconformite" string="Rapport de non-conformite" model="conformite" report_type="qweb-pdf" name="controle_qualite.report_nonconformite" file="controle_qualite.report_nonconformite"/>
+</odoo>

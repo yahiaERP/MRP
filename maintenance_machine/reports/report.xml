@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="rapport_maintenance" model="ir.actions.report">
+		<field name="name">Rapport de maintenance</field>
+		<field name="model">maintenance</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">maintenance_machine.report_maintenance</field>
+		<field name="report_file">maintenance_machine.report_maintenance</field>
+		<field name="binding_model_id" ref="model_maintenance"/>
+		<field name="binding_type">report</field>
+	</record>
+
+	<record id="rapport_intervention" model="ir.actions.report">
+		<field name="name">Rapport d'intervention</field>
+		<field name="model">intervention</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">maintenance_machine.report_intervention</field>
+		<field name="report_file">maintenance_machine.report_intervention</field>
+		<field name="binding_model_id" ref="model_intervention"/>
+		<field name="binding_type">report</field>
+	</record>
+</odoo>

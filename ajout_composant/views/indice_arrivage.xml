@@ -1,0 +1,44 @@
+<odoo>
+   <record id="view_indice_form" model="ir.ui.view">
+            <field name="name">indice.form</field>
+            <field name="model">indice</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="indice d'arrivage">
+                <group>
+                    <field name="article" string="article"/>
+                    
+                    
+                </group>
+    <notebook>
+            <page string="indice arrivage" name="indices">
+                <field name="indices">
+                <tree editable="bottom" >
+                    <field name="indice_arrivage" string="indice d'arrivage"/>   
+                </tree>
+                </field>
+            </page>
+    </notebook>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_indice_arrivage_tree" model="ir.ui.view">
+            <field name="name">indice.tree</field>
+            <field name="model">indice</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="indices">
+                     <field name="article" string="article"/>
+                    <field name="indice_arrivage" string="indice d'arrivage" width="50px"/>
+                </tree>
+            </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_view_indice_arrivage_list">
+        <field name="name">indice d'arrivage</field> 
+        <field name="res_model">indice</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_indice" name="indice d'arrivage" action="action_view_indice_arrivage_list"  parent="mrp.menu_mrp_configuration" sequence="4" />
+    </odoo>

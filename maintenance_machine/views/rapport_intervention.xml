@@ -1,0 +1,56 @@
+<odoo>
+	<record id="view_intervention_form" model="ir.ui.view">
+		<field name="name">intervention.form</field>
+		<field name="model">intervention</field>
+		<field name="priority" eval="8" />
+		<field name="arch" type="xml">
+			<form string="intervention">
+				<sheet>
+					<group>
+						<field name="date" string="date"/>
+						<field name="demandeur" string="demandeur"/>
+						<field name="resultat" string="resultat"/>
+						<field name="degre_urgence" string="degré d'urgence"/>
+						<field name="type_intervention" string="type d'intervention"/>
+						<field name="description_intervention" string="description de l'intervention"/>
+					</group>
+					<notebook>
+						<page name="operations"  string="Opérations d'intervention" >
+							<field name="prescription_line">
+								<tree editable="bottom">
+									<field name="n_operation"/>
+									<field name="type_intervention"/>
+									<field name="debut_intervention"/>
+									<field name="fin_intervention" width="100px"/>
+									<field name="duree" width="150px"/>
+									<field name="observation"/>
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="view_intervention_tree" model="ir.ui.view">
+		<field name="name">intervention.tree</field>
+		<field name="model">intervention</field>
+		<field name="priority" eval="8"/>
+		<field name="arch" type="xml">
+			<tree string="Rapport d'intervention">
+				<field name="date" string="date"/>
+				<field name="demandeur" string="demandeur"/>
+				<field name="resultat" string="resultat"/>
+				<field name="degre_urgence" string="degré d'urgence"/>
+				<field name="type_intervention" string="type d'intervention"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.actions.act_window" id="action_view_intervention_list">
+		<field name="name"> Rapport d'intervention</field>
+		<field name="res_model">intervention</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<menuitem id="menu_maintenance" name="Service maintenance" />
+	<menuitem id="menu_rapport_intervention" name="Rapport d'intervention" parent="menu_maintenance" action="action_view_intervention_list" sequence="4" />
+</odoo>

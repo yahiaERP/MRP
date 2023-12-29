@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_maintenance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <p style="page-break-after:always;" />
+                <div class="centered-image">
+                    <div class="header">
+                        <img src="controle_qualite/static/src/img/logo.png" alt="logo"/>
+                    </div>
+                </div>
+                <div class="article">
+                    <div class="page">
+                        <style>
+                            table, td, th {
+                            border: 1px solid;
+                            }
+
+                            table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            }
+                            .field-name {
+                                font-weight: bold;
+                                font-size: 18px;
+                                text-align: left;
+                                width: 40%;
+                            }
+                            .field-centered {
+                                font-weight: bold;
+                                font-size: 18px;
+                                text-align: left;
+                                width: 40%;
+                                text-align:center;
+                            }
+
+                        </style>
+                        <table class="rounded-table">
+                            <tbody>
+                                <tr >
+                                    <td >Elabore par : <span t-if="doc.elabore_par" t-field="doc.elabore_par"/>
+                                    </td>
+                                    <td rowspan="2" colspan="2">
+                                        <span class="field-centered">Fiche de maintenance preventive</span>
+                                    </td>
+                                    <td colspan="2" rowspan="1"> ref :  <span t-if="doc.ref" t-field="doc.ref"/>
+                                    </td>
+
+
+
+                                </tr>
+                                <tr>
+                                    <td class="field-name">verifie par  : <span t-if="doc.verifie_par" t-field="doc.verifie_par"/>
+                                    </td>
+                                    <td class="field-name">source :  <span t-if="doc.source" t-field="doc.source"/>
+                                    </td>
+                                    <td class="field-name"> date :  <span t-if="doc.date" t-field="doc.date"/>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="field-name">materiel /equipement   : <span t-if="doc.materiel_equipement" t-field="doc.materiel_equipement"/>
+                                    </td>
+
+                                    <td class="field-name">code   : <span t-if="doc.code" t-field="doc.code"/>
+                                    </td>
+
+                                    <td class="field-name">DDI   : </td>
+
+                                    <td class="field-name">PDI   : </td>
+                                    <td class="field-name"> version :  </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="field-name">Constructeur   : <span t-if="doc.constructeur" t-field="doc.constructeur"/>
+                                    </td>
+                                    <td class="field-name">atelier   : <span t-if="doc.atelier" t-field="doc.atelier"/>
+                                    </td>
+                                    <td>
+                                        <span t-if="doc.ddi" t-field="doc.ddi"/>
+                                    </td>
+                                    <td>
+                                        <span t-if="doc.pdi" t-field="doc.pdi"/>
+                                    </td>
+                                    <td>
+                                        <span t-if="doc.version" t-field="doc.version"/>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <table style="width:99%;border-collapse:collapse;" border="1">
+                            <thead>
+                                <tr>
+                                    <td class="field-name">NO</td>
+                                    <td class="field-name">operation</td>
+                                    <td class="field-name"> frequence</td>
+                                    <td class="field-name"> resultat </td>
+                                    <td class="field-name">type de mainipulation  </td>
+                                    <td class="field-name">observation </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.prescription" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.no"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.operation"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.frequence"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.resultat"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.type_manipulation"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.observation"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+            <div class="footer" style="border-top:1px solid black;">
+                <p class="text-center">page																																																																																																																																																																																																						
+                    <span class="page"/>
+ of 																																																																																																																																																																																																						
+                    <span class="topage"/>
+                </p>
+            </div>
+        </t>
+    </template>
+</odoo>

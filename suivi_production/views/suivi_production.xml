@@ -1,0 +1,54 @@
+<odoo>
+   <record id="view_production_form" model="ir.ui.view">
+            <field name="name">production.form</field>
+            <field name="model">production</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Production">
+                <sheet>
+                <group>
+                    <field name="product" string="Article"/>
+                </group>
+                <group>
+                    <field name="date" string="date"/>
+                    <field name="jours_semaine" string="Jours de la semaine"/>
+                </group>
+    <notebook>
+            <page string="Suivi Production" name="Phases">
+                <field name="production">
+                <tree editable="bottom">
+                    <field name="qte_initiale" string="Qte initiale" width="100px"/>
+                    <field widget="clock-widget" name="debut" string=" date début fabtication" width="100px"/>
+                    <field name="nb_fabrique" string="nombre fabriqués" width="100px"/>
+                    <field name="reste" string="reste a fabriquer" width="100px"/>
+                    <field name="nb_ouvrier" string="nombre ouvriers" width="100px"/>
+                    <field name="testeurs" string="testeurs" width="100px" widget="many2many_tags"/>
+                </tree>
+                </field>
+            </page>
+    </notebook>
+                </sheet>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_production_tree" model="ir.ui.view">
+            <field name="name">production.tree</field>
+            <field name="model">production</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="production" >
+                    <field name="jours_semaine"  string="jours de la semaine" width="100px"/>
+                    <field name="product" string="Article" width="100px"/>
+                    <field name="date" width="100px"/>
+                </tree>
+            </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_view_production_list">
+        <field name="name">Tableau de bord production</field> 
+        <field name="res_model">production</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_production" name="Rapport  de Production" action="action_view_production_list"  parent="mrp.menu_mrp_manufacturing" sequence="3" />
+    </odoo>

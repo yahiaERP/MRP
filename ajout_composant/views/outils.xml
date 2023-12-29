@@ -1,0 +1,32 @@
+<odoo>
+   <record id="view_outil_form" model="ir.ui.view">
+            <field name="name">outil.form</field>
+            <field name="model">outil</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="outils">
+                <group>
+                    <field name="nom_outil" string="Nom des outils"/>
+                </group>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_outil_tree" model="ir.ui.view">
+            <field name="name">outil.tree</field>
+            <field name="model">outil</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Composant">
+                    <field name="nom_outil" string="outils"/>
+                </tree>
+            </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="action_view_outils_list">
+        <field name="name">Liste des outils</field> 
+        <field name="res_model">outil</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_outil" action="action_view_outils_list"  parent="mrp.menu_mrp_bom" sequence="1" />
+    </odoo>

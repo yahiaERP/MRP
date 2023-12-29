@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<report id="rapport_production" string="Rapport de production" model="production" report_type="qweb-pdf" name="suivi_production.report_production" file="suivi_production.report_production"/>
+</odoo>

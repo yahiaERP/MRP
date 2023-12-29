@@ -1,0 +1,45 @@
+<odoo>
+   <record id="view_composant_form" model="ir.ui.view">
+            <field name="name">composant.form</field>
+            <field name="model">composant</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="composant">
+                <sheet>
+                <group>
+                <group>
+                    <field name="reference" string="Refernce" width="80px"/>
+                    <field name="designation"/>
+                    <field name="nom_composant" string="Nom composant"  options="{'no_quick_create': True}"/>
+                    <field name="quantite" string="Quantité" />
+                    <field name="photo" widget="pdf_viewer"/>
+                </group>
+                </group>
+                </sheet>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_composant_tree" model="ir.ui.view">
+            <field name="name">composant.tree</field>
+            <field name="model">composant</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Composant" >
+                    <field name="reference" string="Refernce" width="80px"/>
+                    <field name="designation"/>
+                    <field name="nom_composant" string="Nom composant" width="150px"/>
+                    <field name="quantite" string="Quantité" />
+                     <field name="photo" string="Photo" widget="pdf_viewer"/>
+                    
+                </tree>
+            </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="action_view_composant_list">
+        <field name="name">Liste des composants</field> 
+        <field name="res_model">composant</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_composant" action="action_view_composant_list"  parent="mrp.menu_mrp_bom" sequence="1" />
+    </odoo>

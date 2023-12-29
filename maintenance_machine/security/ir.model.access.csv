@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_maintenance,access.maintenance,model_maintenance,,1,1,1,1
+access_intervention,access.intervention,model_intervention,,1,1,1,1
+access_phases_interv,access.phases_interv,model_phases_interv,,1,1,1,1
+access_phases_maint,access.phases_maint,model_phases_maint,,1,1,1,1

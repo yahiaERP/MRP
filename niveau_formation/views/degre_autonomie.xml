@@ -1,0 +1,36 @@
+<odoo>
+   <record id="view_autonomie_form" model="ir.ui.view">
+            <field name="name">autonomie.form</field>
+            <field name="model">autonomie</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="degre autonomie">
+                <group>
+                    <field name="echelle_autonomie" string="echelle autonomie"/>
+                    <field name="design_autonomie"  string="designation"/>
+                    <field name="note_eval_autonomie" string="note évaluatiuon"/>
+                </group>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_autonomie_tree" model="ir.ui.view">
+            <field name="name">autonomie.tree</field>
+            <field name="model">autonomie</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="autonomie" editable="bottom">
+                    <field name="echelle_autonomie" string="echelle autonomie" width="50px"/>
+                    <field name="design_autonomie"  string="designation"/>
+                    <field name="note_eval_autonomie" string="note évaluatiuon"/>
+                </tree>
+            </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="action_view_autonomie_list">
+        <field name="name">degrés d’autonomie et de responsabilité </field> 
+        <field name="res_model">autonomie</field> 
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem id="menu_autonomie" action="action_view_autonomie_list"  parent="hr.menu_human_resources_configuration" sequence="5" />
+    </odoo>

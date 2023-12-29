@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_production,access.production,model_production,,1,1,1,1
+access_suivi_journalier,access.suivi_journalier,model_suivi_journalier,,1,1,1,1
+access_jours,access.jours,model_jours,,1,1,1,1

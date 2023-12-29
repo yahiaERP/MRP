@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_mrp_workorder" model="ir.actions.report">
+        <field name="name">ordre de travail</field>
+        <field name="model">mrp.workorder</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">workorder.report_workorder</field>
+        <field name="report_file">workorder.report_workorder</field>
+        <field name="report_file">workorder.report_workorder</field>
+        <field name="print_report_name">'Ordre de travail'</field>
+        <field name="binding_type">report</field>
+        <field name="multi">False</field>
+    </record>
+</odoo>

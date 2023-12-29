@@ -1,0 +1,1 @@
+from . import composant_mrp_bom

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_formation,access.formation,model_formation,,1,1,1,1
+access_interne,access.interne,model_interne,,1,1,1,1
+access_qualification,access.qualification,model_qualification,,1,1,1,1
+access_anciennete,access.anciennete,model_anciennete,,1,1,1,1
+access_autonomie,access.autonomie,model_autonomie,,1,1,1,1
